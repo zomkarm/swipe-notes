@@ -29,7 +29,17 @@ Cards can be swiped or navigated one by one, making it ideal for:
 
 - Python  
 - Tkinter (GUI)  
-- JSON (data persistence)  
+- JSON (data persistence)
+
+---
+
+## Requirements
+
+- Python 3.x
+- tkinter (pre-installed on Windows/macOS, install manually on Linux)
+
+Install dependencies:
+pip install -r requirements.txt
 
 ---
 
