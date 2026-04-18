@@ -55,6 +55,7 @@ def save_data(data):
 def delete_topic_file(topic):
     path = os.path.join(DATA_DIR, f"{topic}.json")
     if os.path.exists(path):
+        print("removing",path)
         os.remove(path)
 
 # ── Main App ─────────────────────────────────────────────────────────────────
@@ -261,11 +262,14 @@ class SwipeNotesApp(ctk.CTk):
             messagebox.showinfo("Tip", "Select a topic first.", parent=self)
             return
         if not messagebox.askyesno("Delete Topic",
-                                   f'Delete "{self.current_topic}" and all its cards?',
-                                   parent=self):
+                                f'Delete "{self.current_topic}" and all its cards?',
+                                parent=self):
             return
-        delete_topic_file(self.current_topic)
-        save_data(self.data)
+        # delete the file from disk first, before clearing current_topic
+        topic_file = os.path.join(DATA_DIR, f"{self.current_topic}.json")
+        if os.path.exists(topic_file):
+            os.remove(topic_file)
+        del self.data[self.current_topic]
         self.current_topic = None
         self.card_index = 0
         self._refresh_topic_list()
