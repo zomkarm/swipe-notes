@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
 """
-SwipeNotes — Interview Revision Tool
-Requirements: pip install customtkinter
-Run: python flashcard_app.py
+SwipeNotes — A lightweight swipe-based card app for quick notes, revision, and prompts.
+Run: python main.py
 """
 
 import json
@@ -59,13 +58,18 @@ def delete_topic_file(topic):
         os.remove(path)
 
 # ── Main App ─────────────────────────────────────────────────────────────────
-class FlashcardApp(ctk.CTk):
+class SwipeNotesApp(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("Flashcard — Interview Prep")
+        self.title("Swipe Notes")
         self.geometry("900x620")
         self.minsize(720, 520)
         self.wm_attributes("-zoomed", True)
+        try:
+            icon = tk.PhotoImage(file=os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets/icon.png"))
+            self.wm_iconphoto(True, icon)
+        except Exception:
+            pass  # silently skip if icon file missing
         self.configure(fg_color=COLORS["bg"])
 
         self.data = load_data()          # {topic: [card_text, ...]}
@@ -438,5 +442,5 @@ if __name__ == "__main__":
         import subprocess, sys
         print("Installing customtkinter...")
         subprocess.check_call([sys.executable, "-m", "pip", "install", "customtkinter"])
-    app = FlashcardApp()
+    app = SwipeNotesApp()
     app.mainloop()
