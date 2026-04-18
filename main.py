@@ -18,17 +18,17 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
 COLORS = {
-    "bg":         "#0f1117",
-    "surface":    "#1a1d27",
-    "card":       "#20243a",
-    "card_hover": "#262b42",
-    "accent":     "#4f7cff",
-    "accent2":    "#7c4fff",
-    "text":       "#e8eaf6",
-    "sub":        "#8b90b0",
-    "danger":     "#ff4f6e",
-    "success":    "#4fff9a",
-    "border":     "#2e3350",
+    "bg":         "#2b2724",   # warm dark brown-gray
+    "surface":    "#332e2a",   # slightly lighter warm surface
+    "card":       "#3d3731",   # warm card background
+    "card_hover": "#453f38",
+    "accent":     "#c8a96e",   # warm golden amber
+    "accent2":    "#a67c52",   # deeper amber
+    "text":       "#e8ddd0",   # warm off-white, not stark white
+    "sub":        "#9a8f82",   # muted warm gray
+    "danger":     "#c47060",   # soft terracotta red
+    "success":    "#7aab8a",
+    "border":     "#4a4440",   # subtle warm border
 }
 
 # ── Persistence ──────────────────────────────────────────────────────────────
